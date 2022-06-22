@@ -2,6 +2,9 @@ const P = console.log.bind(console)
 const main = document.getElementById('main');
 const createUserButton = document.getElementById('create-user');
 const doubelMoneyBotton = document.getElementById('double-money');
+const sortedByRichest = document.getElementById('sort-by-richest');
+
+
 let data = [];
 // at a time 2 user show very first load;
 getRandomUser();
@@ -34,6 +37,11 @@ function doubelMoney(){
     // P('double money', data)
     updateDOM()
 }
+// sort users by richest
+function sortByRechest(){
+    data.sort((a, b) => b.money - a.money);
+    updateDOM()
+}
 
 //update DOM
 function updateDOM(providedData = data){
@@ -56,3 +64,4 @@ function formatMoney(number){
 // event listeners
 createUserButton.addEventListener('click', getRandomUser)
 doubelMoneyBotton.addEventListener('click', doubelMoney)
+sortedByRichest.addEventListener('click', sortByRechest)
